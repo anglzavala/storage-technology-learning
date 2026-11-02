@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Storage Learning Hub</title>
+    <meta
+      name="description"
+      content="Interactive educational website on digital storage technologies, backup strategies, cloud storage, and security."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <div class="brand-wrap">
+          <div class="brand-mark">DS</div>
+          <div>
+            <div class="brand-name">Digital Storage</div>
+            <div class="brand-subtitle">Learning Hub</div>
+          </div>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#fundamentals">Fundamentals</a>
+          <a href="#comparison">Comparison</a>
+          <a href="#tools">Tools</a>
+          <a href="#music">Music</a>
+          <a href="#map">Map</a>
+          <a href="#weather">Weather</a>
+          <a href="#videos">Videos</a>
+          <a href="#movie">Movie</a>
+          <a href="#chatbot">AI Chatbot</a>
+          <a href="#quiz">Quiz</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Chapter 7 · Digital Storage</span>
+            <h1>Choose the right storage solution for every digital task.</h1>
+            <p>
+              Explore how HDDs, SSDs, USB drives, memory cards, optical media, and cloud storage work,
+              compare their strengths, and learn how to protect data and information security.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#comparison">Compare storage</a>
+              <a class="secondary-btn" href="#quiz">Start quiz</a>
+            </div>
+            <ul class="hero-metrics">
+              <li><strong>7+</strong><span>storage types</span></li>
+              <li><strong>5</strong><span>interactive tools</span></li>
+              <li><strong>24/7</strong><span>learning support</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="device-stack">
+              <div class="device-card device-large"><span>Cloud</span><strong>1 PB</strong></div>
+              <div class="device-card device-medium"><span>NVMe SSD</span><strong>2 TB</strong></div>
+              <div class="device-card device-small"><span>USB</span><strong>256 GB</strong></div>
+            </div>
+            <div class="floating-badge badge-one">Fast</div>
+            <div class="floating-badge badge-two">Secure</div>
+            <div class="floating-badge badge-three">Portable</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="fundamentals" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Digital Storage Fundamentals</span>
+            <h2>Understanding digital storage</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="info-card">
+              <div class="card-icon">💾</div>
+              <h3>What is digital storage?</h3>
+              <p>Digital storage is any tool or system used to save data so it can be retrieved, copied, protected, or shared later.</p>
+            </article>
+            <article class="info-card">
+              <div class="card-icon">⚡</div>
+              <h3>Capacity and speed</h3>
+              <p>Capacity tells us how much data fits, while speed tells us how quickly data can be read and written.</p>
+            </article>
+            <article class="info-card">
+              <div class="card-icon">🛡️</div>
+              <h3>Security and backups</h3>
+              <p>Encryption and backups help protect information from loss, theft, and accidental damage.</p>
+            </article>
+            <article class="info-card">
+              <div class="card-icon">📦</div>
+              <h3>Portability and durability</h3>
+              <p>Some devices are designed for travel and rugged use, while others focus on long-term storage or large-scale access.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="comparison" class="section alt-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Storage Technology Comparison</span>
+            <h2>Compare storage devices side by side</h2>
+          </div>
+
+          <div class="compare-selector">
+            <button class="tech-toggle active" data-tech="HDD" type="button">HDD</button>
+            <button class="tech-toggle active" data-tech="SATA SSD" type="button">SATA SSD</button>
+            <button class="tech-toggle active" data-tech="NVMe SSD" type="button">NVMe SSD</button>
+            <button class="tech-toggle active" data-tech="USB Flash" type="button">USB Flash</button>
+            <button class="tech-toggle active" data-tech="Memory Card" type="button">Memory Card</button>
+            <button class="tech-toggle active" data-tech="Optical" type="button">Optical</button>
+            <button class="tech-toggle active" data-tech="Cloud" type="button">Cloud</button>
+          </div>
+
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Technology</th>
+                  <th>Capacity</th>
+                  <th>Speed</th>
+                  <th>Durability</th>
+                  <th>Portability</th>
+                  <th>Cost</th>
+                  <th>Best for</th>
+                </tr>
+              </thead>
+              <tbody id="comparisonBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Interactive Tools</span>
+            <h2>Storage calculators and recommendations</h2>
+          </div>
+          <div class="tool-grid">
+            <div class="tool-panel">
+              <h3>Storage Calculator</h3>
+              <form id="storageCalculator" class="calculator-form">
+                <label>
+                  Device capacity (GB)
+                  <input id="deviceCapacity" type="number" min="1" value="512" />
+                </label>
+                <label>
+                  Photo size (MB)
+                  <input id="photoSize" type="number" min="1" value="8" step="0.5" />
+                </label>
+                <label>
+                  Song size (MB)
+                  <input id="songSize" type="number" min="1" value="4" step="0.5" />
+                </label>
+                <label>
+                  Video size (GB)
+                  <input id="videoSize" type="number" min="0.1" value="2" step="0.1" />
+                </label>
+                <button type="submit" class="primary-btn">Calculate</button>
+              </form>
+              <div id="calculatorResult" class="result-box"></div>
+            </div>
+
+            <div class="tool-panel">
+              <h3>Recommendation Tool</h3>
+              <div class="recommendation-options">
+                <button class="rec-btn active" data-usecase="gaming">Gaming</button>
+                <button class="rec-btn" data-usecase="schoolwork">Schoolwork</button>
+                <button class="rec-btn" data-usecase="photography">Photography</button>
+                <button class="rec-btn" data-usecase="business">Business</button>
+                <button class="rec-btn" data-usecase="backups">Backups</button>
+              </div>
+              <div id="recommendationResult" class="result-box"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="music" class="section alt-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Music Player</span>
+            <h2>Listen while learning</h2>
+          </div>
+
+          <div class="music-panel">
+            <div class="music-meta">
+              <div class="music-art">♫</div>
+              <div>
+                <p class="music-label">Now playing</p>
+                <h3 id="trackTitle">Select a track</h3>
+                <div class="track-bar"><div id="progressBar"></div></div>
+                <div class="time-row">
+                  <span id="currentTime">0:00</span>
+                  <span id="duration">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="music-controls">
+              <button id="toggleMusic" class="primary-btn">Enable background music</button>
+              <button id="playPauseBtn" class="secondary-btn" disabled>Play</button>
+              <label class="volume-control">
+                <span>Volume</span>
+                <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.6" />
+              </label>
+            </div>
+
+            <div class="playlist" id="playlist"></div>
+            <audio id="audioPlayer" preload="none"></audio>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Interactive Map</span>
+            <h2>Storage locations and technology hubs</h2>
+          </div>
+          <div class="map-controls">
+            <input id="mapSearch" type="text" placeholder="Search for a city or place" />
+            <button id="searchMapBtn" class="primary-btn">Search</button>
+          </div>
+          <div id="map" aria-label="Storage map"></div>
+        </div>
+      </section>
+
+      <section id="weather" class="section alt-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Weather Dashboard</span>
+            <h2>Check local conditions and forecast</h2>
+          </div>
+
+          <div class="weather-card">
+            <div class="weather-search">
+              <input id="weatherSearch" type="text" placeholder="Search for a city" />
+              <button id="weatherSearchBtn" class="primary-btn">Search</button>
+            </div>
+
+            <div class="quick-cities">
+              <button type="button" class="city-btn active" data-city="New York">New York</button>
+              <button type="button" class="city-btn" data-city="London">London</button>
+              <button type="button" class="city-btn" data-city="Tokyo">Tokyo</button>
+              <button type="button" class="city-btn" data-city="Sydney">Sydney</button>
+            </div>
+
+            <div id="weatherStatus" class="status-message">Loading weather…</div>
+
+            <div class="weather-current">
+              <div>
+                <p class="weather-label">Current weather</p>
+                <h3 id="weatherCity">New York</h3>
+              </div>
+              <div class="weather-temp-box">
+                <span id="weatherTemp">--°C</span>
+                <small id="weatherCondition">--</small>
+              </div>
+            </div>
+
+            <div class="weather-detail-grid">
+              <div><span>Humidity</span><strong id="humidityValue">--</strong></div>
+              <div><span>Wind</span><strong id="windValue">--</strong></div>
+              <div><span>Feels like</span><strong id="feelsValue">--</strong></div>
+            </div>
+
+            <div id="forecastList" class="forecast-row"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Educational Videos</span>
+            <h2>Learn how computers store data</h2>
+          </div>
+          <div class="video-grid">
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/5m6ZYObJ3xM?si=Q7sPjaEsm5w8mQ-C" title="How hard drives work" loading="lazy" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3>How HDDs and SSDs Work</h3>
+                <p>Explore the internal components and process behind mechanical and solid-state drives.</p>
+              </div>
+            </article>
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/_n8C8D9l4N4?si=2PAhWhcXq5Bf4hQw" title="HDD vs SSD differences" loading="lazy" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3>HDD vs SSD</h3>
+                <p>Compare performance, cost, durability, and use cases for everyday and enterprise storage.</p>
+              </div>
+            </article>
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/uxk3rFKI_dw?si=Wxh0ipm7I8F-CW8p" title="Cloud storage and data centers" loading="lazy" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3>Cloud Storage and Data Centers</h3>
+                <p>Understand how businesses store large amounts of data in distributed, remote systems.</p>
+              </div>
+            </article>
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/2BvP2s6P5Q0?si=6jD3d2xX2x1gDffY" title="Data backup and cybersecurity" loading="lazy" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3>Data Backup and Cybersecurity</h3>
+                <p>Learn how backup strategies and encryption protect information from loss and attacks.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="movie" class="section alt-section">
+        <div class="container movie-layout">
+          <div class="movie-poster-wrap">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80" alt="Movie poster about technology" class="movie-poster" />
+          </div>
+          <div class="movie-content">
+            <span class="eyebrow">Movie Theater</span>
+            <h2>Inside the Digital World</h2>
+            <p>This short feature highlights how information moves through modern systems and how digital data is stored, protected, and retrieved.</p>
+            <video controls playsinline preload="metadata" class="movie-player">
+              <source src="https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="chatbot" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">AI Chatbot</span>
+            <h2>Ask about storage concepts</h2>
+          </div>
+          <div class="chatbot-panel">
+            <div id="chatMessages" class="chat-messages" aria-live="polite">
+              <div class="message bot">Hello! I’m the demo digital storage tutor. Ask me to compare HDDs and SSDs or recommend a storage solution.</div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" type="text" placeholder="Ask about storage, backup, or cloud storage..." />
+              <button class="primary-btn" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz" class="section alt-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Quiz and Learning Resources</span>
+            <h2>Test your knowledge</h2>
+          </div>
+          <div id="quizContainer" class="quiz-card"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Digital Storage Learning Hub</p>
+        <p>Chapter 7 • Information and Communication Technology</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
